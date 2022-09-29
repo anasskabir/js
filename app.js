@@ -139,7 +139,116 @@ function findLarge (array) {
 }
 console.log(findLarge([-200,-100, -300]))
 
-//reverse a string
-function reverseString(string) {
-    
+//reverse a string using incrementing loop
+function incRevString(string) {
+    let newString1 = ``
+    for ( i=0; i < string.length; ++i){
+        newString1 = string[i] + newString1;
+    }
+    return newString1;
+
 }
+console.log(incRevString(`abc`))
+
+//reverse a string using a decremementing loop
+function decRevString (string) {
+    let newString2 = ``
+    for (i = string.length - 1; i >= 0; --i){
+        newString2 = newString2 + string[i]
+    }
+    return newString2
+}
+console.log(decRevString(`abcde`))
+
+// convert string to array (in order to edit - [in this case reverse])
+/** 1. .split('') -> converts string to array
+ *  2. .reverse -> reverses array
+ *  3. .join('') -> converts array to string
+ */
+function revStrIntoArr (string){
+    let newArr = string.split('')
+    return newArr.reverse().join('')
+}
+console.log(revStrIntoArr('qwerty'))
+
+// turn every element in array to 0 (for loop)
+function forToZero (array){
+    for (i = 0; i < array.length; ++i){
+        array[i] = 0
+    }
+    return array
+}
+console.log(forToZero([1,2,3,4,5]))
+
+// turn every element in array to 0 (array fill)
+function fillToZero (array) {
+    return new Array(array.length).fill(0)
+}
+console.log(fillToZero([1,2,3,4,5,6]))
+
+//turn every element in array to 0 (array map)
+function mapToZero (array) {
+    let newArr = array.map(element => 0)
+    return newArr
+}
+console.log(mapToZero([1,2,3,4,5]))
+
+//filter out all the apples (for loop)
+function removeApples (array){
+    let noApple = []
+    for (i = 0; i < array.length; ++i){
+        if (array[i] !== 'Apple'){
+            noApple.push(array[i])
+        }
+    }
+    return noApple
+}
+console.log(removeApples(['Banana','Apple','Orange','Apple']))
+
+//filter out all the apples (array.map)
+function removeApplesMap (array) {
+    return array.filter (element => element !== `Apple`)
+}
+console.log(removeApplesMap(['Banana','Apple','Orange','Apple']))
+
+// filter out all the falsy values (for loop)
+function removeFalsy (array) {
+    let noFalsy = []
+    for (i = 0; i < array.length; ++i){
+        if (!array[i] === false){
+            noFalsy.push(array[i])
+        }
+    }
+    return noFalsy
+}
+console.log(removeFalsy(['Tomato','Apple','Banana',0, "",]))
+
+//filter out all the falsy values (filter)
+function removeFalsyFilter (array){
+    return array.filter(element => !element === false )
+}
+console.log(removeFalsyFilter(['Tomato','Apple','Banana',0, "",]))
+
+//truthy to true, falsy to false
+function TtoTFtoF (array){
+    // let newArray = []
+    // 1)
+    // for (i = 0; i < array.length ; ++i){
+    //     if (!!array[i] === true){
+    //         newArray.push(true)
+    //     }
+    //     if (!!array[i] === false){
+    //         newArray.push(false)
+    //     }
+        
+    // }
+    // return newArray
+    // 2)
+    // for (i = 0; i < array.length ; ++i){
+    //     newArray.push(!!array[i])
+    // }
+    // return newArray
+    // 3)
+    return array.map(element => !!element)
+}
+console.log(TtoTFtoF([500,0,"David","",[]]))
