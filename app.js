@@ -76,3 +76,70 @@ function userStatus (string1, string2) {
 }
 console.log(userStatus(`Logged_in`, `subscribed`))
 
+// falsy or truthy?
+function isItFalsy (item1, item2) {
+    return !item1 ? item1 : item2
+}
+console.log(isItFalsy(0,`500`))
+
+// return length of array
+function arrayLength (array) {
+    return array.length
+}
+console.log(arrayLength([1,2,3]))
+
+//last element of array
+function lastElement (array) {
+    return (array[array.length - 1])
+}
+console.log(lastElement([`dog`, `cat`, `ball`]))
+
+// sum of array
+function sumArray (array) {
+    let sum = 0
+    for (let i = 0; i < array.length; ++i) {
+        sum = sum + array[i]
+    }
+    return sum
+}
+console.log(sumArray([0,-5,-9]))
+
+//adding number from a single number
+function addGroup (num) {
+    let sum = 0;
+    for (i = 1; i <= num ; ++i){
+        sum = sum + i;
+    }
+    return sum
+}
+console.log(addGroup(4))
+
+// seconds to time format (mm:ss)
+function calcTime (seconds) {
+    let minutes = Math.floor(seconds / 60)
+    let timeSeconds = seconds % 60
+
+    if ( minutes.toString().length === 1){
+        return `0`+minutes + `:` + timeSeconds
+    }
+
+    return minutes + `:` + timeSeconds
+}
+console.log(calcTime(5737))
+
+//find larget number in array
+function findLarge (array) {
+    let max = array[0];
+    for (i = 0; i < array.length; ++i){
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    return max
+}
+console.log(findLarge([-200,-100, -300]))
+
+//reverse a string
+function reverseString(string) {
+    
+}
