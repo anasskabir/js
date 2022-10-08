@@ -252,3 +252,61 @@ function TtoTFtoF (array){
     return array.map(element => !!element)
 }
 console.log(TtoTFtoF([500,0,"David","",[]]))
+
+//show rating - turn number into stars and decimals
+function showRating(number) {
+    let newRating = ''
+    for (let i = 0; i < Math.floor(number); ++i){
+        newRating = newRating + '*'
+        if (i !== Math.floor(number) - 1){
+        newRating = newRating + ' '
+    }
+}
+    if (!Number.isInteger(number)) {
+        newRating = newRating + '.'
+    }
+
+return newRating
+}
+console.log(showRating(3.5))
+
+//sort numbers in array from low to high
+function lowToHigh (array){
+    return array.sort((a,b) => a-b)
+}
+console.log(lowToHigh([1,5,0,4,10]))
+
+// sort array of objects from high to low
+function hiToLow (array){
+    return array.sort((a, b) => b.price -a.price)
+}
+console.log(hiToLow([
+    {
+        id: 1, price: 50 
+    },
+    {
+        id: 2, price: 0
+    },
+    {
+        id: 3, price: 500 
+    }
+]))
+
+// find posts by a single user
+async function findSingleUser (userNumber) {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const data = await response.json()
+    const posts = data.filter(element => element.userId === userNumber)
+    return posts
+}
+
+console.log(findSingleUser(3))
+
+//find first 6 incomplete todos
+async function findIncomplete (task){
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos')
+    const data = await response.json()
+    const posts = data.filter(element => !element.completed).slice(0,task)
+    return posts
+}
+console.log(findIncomplete(6))
